@@ -5,107 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>James Fehr</title>
-    <link rel="icon" type="image/png" href="j.png"/>
+    <link rel="icon" type="image/png" href=".\img\j.png"/>
     <link rel="stylesheet" href="CSS/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-.navbar {
-  overflow: hidden;
-  background-color: #333;
-  font-family: Arial, Helvetica, sans-serif;
-}
 
-.navbar a {
-  float: left;
-  font-size: 16px;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-.dropdown {
-  float: left;
-  overflow: hidden;
-}
-
-.dropdown .dropbtn {
-  cursor: pointer;
-  font-size: 16px;  
-  border: none;
-  outline: none;
-  color: rgb(7, 8, 102);
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit;
-  margin: 0;
-}
-
-.navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {
-  background-color: rgb(0, 255, 170);
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
-
-.show {
-  display: block;
-}
-body{
-      background-image=".\img\digitized.jpg";
-}
-</style>
-</head>
-  <body background=".\img\web.jpg"> 
-    <header>
+  </head>
+</div>
+  <body background=".\img\bkgrd_codingAbs.jpg"> 
+    <div class="ndisp">
     <h1 class="banner">
-        James Fehr
-    </h1>
-    </header>
-    <main>
-     <div>
-        <div class="navbar">
+      James Fehr
+      <a href="https://github.com/Turtle-Head" target="_blank"><img class="gh" src=".\img\gh.png" height="15px" width="15px" alt="Github Profile"></a>
+  </h1>
+  <div>
+      <div class="nav">
             <a href="mailto:james.fehr@itdcanada.ca">Contact Me</a>
-            <a href="https://github.com/Turtle-Head" target="_blank">Github profile</a>
             <div class="dropdown">
-            <button class="dropbtn" onclick="myFunction()">Featured Work
+            <button class="dropbtn" onhover="myFunction()">Featured Work
               <i class="fa fa-caret-down"></i>
-            </button><!--The dropdown list of sites-->
+            </button> <!--The dropdown list of sites -->
             <div class="dropdown-content" id="myDropdown">
             <a href="..\CleanUp\index.html" target="_blank">CleanUp</a>
-            <a href="..\hyperlinks\index.html" target="_blank">Hyperlinks
-            <a href="..\Lists\index.html" target="_blank">Lists
+            <a href="..\hyperlinks\index.html" target="_blank">Hyperlinks</a>
+            <a href="..\Lists\index.html" target="_blank">Lists</a>
             <a href="..\headings\index.html" target="_blank">Headings</a>
             <a href="..\HTML_IMAGES\index.html" target="_blank">HTML Images</a>
             <a href="https://turtle-head.github.io/CatClicker/" target="_blank">Cat Clicker</a>
             <a href="https://turtle-head.github.io/Bugged/" target="_blank">Bugged</a>
             <a href="https://turtle-head.github.io/Coding-the-little-things/" target="_blank">Coding the little things</a>
-            <a href="https://turtle-head.github.io/Portfolio/" target="_blank">Old Portfolio</a>
-      </div>
-      </div>
+            <a href="https://turtle-head.github.io/Portfolio/" target="_blank">v1 Portfolio</a>
+      </div> 
 </div>
-</main>
-      <script>
-/* When the user clicks on the button, 
+
+<!-- Javascript for dropdowns -->
+<script>
+/* When the user hovers over the button, 
 toggle between hiding and showing the dropdown content */
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
@@ -120,14 +54,8 @@ window.onclick = function(e) {
     }
   }
 }
-</script>
-      
-
-    <footer>
-      <div  align="center">
-       <!-- footer linkin area -->
-       <!-- <img src=".\img\digitized.jpg" width="100%" alt="abstract"/> -->
-      </div>
-    </footer>
-    </body>
+</script> 
+<!-- End of Javascript -->
+<footer></footer>
+</body>
 </html>
