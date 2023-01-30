@@ -1,149 +1,152 @@
-/*  Stylesheet for PortfolioDeux   */
-/*  Author: James Fehr  */
-
-/* ELEMENTS */
+/* Author: James Fehr */
+/* Stylesheet for ProtfolioDeux */
+/* Project for ICR100 ITD */
 
 * {
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  color: #33334d;
-}
-
-nav a,
-button {
-  min-width: 48;
-  min-height: 48;
-}
-
-a {
-  text-decoration: none;
+  padding: 0%;
+  margin: 0%;
 }
 
 body {
-  background-color: lightblue;
+  background-color: rgba(185, 185, 255, 0.459);
+  color: aliceblue;
 }
 
-h1 {
-  font-size: 72px;
-  font-variant: small-caps;
-  font-weight: 400;
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  padding: 0;
-  border: 0;
-  margin: 0;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  white-space: pre-wrap;
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 835px;
+  text-transform: capitalize;
+  align-items: baseline;
+  justify-content: center;
 }
-@media only screen and (max-width: 500px) {
-  h1 {
-    font-size: 4em;
-  }
-  h2 {
-    font-size: 2em;
-  }
-  h3 {
-    font-size: 2em;
-  }
-}
-h4 {
-  font-size: 1.25em;
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  white-space: pre-wrap;
-  vertical-align: middle;
-  padding: 0;
-  border: 0;
-  margin: 0;
-  text-decoration: none;
-  font-style: normal;
-  font-weight: 400;
-}
-h2 {
-  font-variant: small-caps;
-  font-size: 24px;
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  padding: 0;
-  border: 0;
-  margin: 0;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  white-space: pre-wrap;
-  vertical-align: middle;
-}
-
-h3 {
-  font-variant: small-caps;
-  font-size: 22px;
-  align: center;
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+.nav {
   text-align: center;
-  padding: 0 0 0;
-  line-height: 0.1;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  white-space: pre-wrap;
+  justify-content: center;
+  font-family: monospace;
+  width: 100%;
+  position: relative;
+  background-color: aliceblue;
+}
+.flex-items {
+  justify-content: center;
+  flex-direction: column;
+  width: auto;
+  align-items: center;
+  text-align: center;
+}
+a {
+  justify-content: center;
+  display: flex inline-block;
+  flex-direction: column;
   text-decoration: none;
-  font-weight: 400;
+  text-rendering: auto;
+  font-size: large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(56, 112, 216);
 }
-div {
-  background-color: rgb(173, 212, 230);
+h1 {
+  text-transform: capitalize;
+  color: rgb(0, 89, 255);
+  background-color: rgba(185, 185, 255, 0.459);
+  margin: 0px;
 }
-
-img {
-  max-width: 100%;
-}
-a{
-  color: goldenrod;
-}
-
-/* CLASSES */
-.divider {
-    width: 100%;
-    min-height: 5px;
-    background-color: #33334d;
-    align-self: center;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-weight: lighter;
-    font-size: 22px;
+.btn {
+  text-align: center;
+  justify-content: center;
 }
 
-.divider-f {
-    width: 100%;
-    min-height: 5px;
-    align: relative 50;
-    text-indent: 50;
-    color: #33334d;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-weight: 400;
-    font-size: 22px;
+.dropbtn {
+  background-color: aliceblue;
+  color: rgb(0, 89, 255);
+  padding: 12px;
+  font-size: medium;
+  border: none;
+  width: 120px;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  font-size: medium;
+}
+.dropdown-content a:hover {
+  background-color: #ddd;
 }
 
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
-.logo {
-    border-radius: 70px 40px;
-    border: 10px solid #33334d;
-    padding: 15px;
-    width: 135px;
-    height: 130px;
-    align: center;
+.dropdown:hover .dropbtn {
+  background-color: aliceblue;
 }
 
 .banner {
-    width: 100%;
-    height: 250px;
-    padding-top: 5px;
-    background-color: #08088b;
-  	background-image:
-  	-webkit-linear-gradient(left, #000000, #222268);
-  	background-image:
-  	-o-linear-gradient(left, #ff0303, #050574);
-  	background-image:
-  	linear-gradient(to right, #1b0303, #12125e);
-    color:aliceblue;
+  width: 100%;
+  height: 175px;
+  padding: 0px;
+  background-color: aliceblue;
+  background-image: -webkit-linear-gradient(left, #a70903, #1834a6);
+  background-image: -o-linear-gradient(left, #1806a2, aliceblue);
+  background-image: linear-gradient(to right, aliceblue, #3a1a7a);
+  text-align: center;
+  text-size: larger;
+  font-size: 5em;
+  font-family: monospace;
+}
+.gh {
+  padding: 0%;
+  height: auto;
+  width: 40px;
+}
+body {
+  width: 100%;
+  height: 100%;
+}
+.ndisp {
+  height: 175px;
+}
+.foot{
+  align-self: bottom;
+  color: aliceblue;
+  height:10px;
+  width:auto;
+}
+.pictures{
+  height: auto;
+  width:70px;
+  display: relative; 
 }
 
-/* IDs */
-#feat-item {
-  padding: 8.33%;
+.vid{
+  display:block;
+  position: relative; 
+  padding-bottom: 5%;
+  padding-top: 5%;
+  height: 0;
+  left: 30%;
+}
+.flex-center{
+  display: flex;
+  flex-direction: row;
+}
+
+#vbox{
+  display:flex;
+  flex-direction: column;
 }
