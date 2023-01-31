@@ -122,33 +122,33 @@ body {
 .ndisp {
   height: 175px;
 }
-.foot{
+.foot {
   align-self: bottom;
   color: aliceblue;
-  height:10px;
-  width:auto;
+  height: 10px;
+  width: auto;
 }
-.pictures{
+.pictures {
   height: auto;
-  width:70px;
-  display: relative; 
+  width: 70px;
+  display: relative;
 }
 
-.vid{
-  display:block;
-  position: relative; 
+.vid {
+  display: block;
+  position: relative;
   padding-bottom: 2.5%;
   padding-top: 2.5%;
-  height: 5 em;
-  left: 40%;
-  margin:1 em;
+  height: 6 em;
+  left: 25%;
+  margin: 1 em;
 }
-.flex-center{
+.flex-center {
   display: flex;
   flex-direction: row;
 }
 
-#vbox{
-  display:flex;
+#vbox {
+  display: flex;
   flex-direction: column;
 }
