@@ -1,5 +1,5 @@
 /* Author: James Fehr */
-/* Stylesheet for ProtfolioDeux.html */
+/* Stylesheet for ProtfolioDeux */
 /* Project for ICR100 ITD */
 
 * {
@@ -50,6 +50,7 @@ h1 {
   color: rgb(0, 89, 255);
   background-color: rgba(185, 185, 255, 0.459);
   margin: 0px;
+  text-shadow: 1px 1px rgb(0, 221, 255);
 }
 .btn {
   text-align: center;
@@ -119,11 +120,35 @@ body {
   height: 100%;
 }
 .ndisp {
-  height: 275px;
+  height: 175px;
 }
 .foot{
   align-self: bottom;
   color: aliceblue;
   height:10px;
   width:auto;
+}
+.pictures{
+  height: auto;
+  width:70px;
+  display: relative; 
+}
+
+.vid{
+  display:block;
+  position: relative; 
+  padding-bottom: 2.5%;
+  padding-top: 2.5%;
+  height: 5 em;
+  left: 40%;
+  margin:1 em;
+}
+.flex-center{
+  display: flex;
+  flex-direction: row;
+}
+
+#vbox{
+  display:flex;
+  flex-direction: column;
 }
