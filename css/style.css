@@ -136,19 +136,23 @@ body {
 
 .vid {
   display: block;
-  position: relative;
+  position:relative;
+  flex-direction: row;
   padding-bottom: 2.5%;
   padding-top: 2.5%;
   height: 6 em;
-  left: 25%;
   margin: 1 em;
+  padding-right: 5%;
 }
 .flex-center {
-  display: flex;
+  display:flex;
   flex-direction: row;
 }
 
 #vbox {
-  display: flex;
-  flex-direction: column;
+  display:flex;
+  position:absolute;
+  flex-direction: row;
+  bottom: 15px;
+  left: 15%;
 }
