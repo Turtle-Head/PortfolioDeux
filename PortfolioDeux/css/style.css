@@ -1,0 +1,195 @@
+/* Author: James Fehr */
+/* Stylesheet for ProtfolioDeux */
+/* Project for ICR100 ITD */
+
+* {
+  padding: 0%;
+  margin: 0%;
+}
+
+body {
+  background-color: rgba(185, 185, 255, 0.459);
+  color: aliceblue;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 835px;
+  text-transform: capitalize;
+  align-items: baseline;
+  justify-content: center;
+}
+.nav {
+  text-align: center;
+  justify-content: center;
+  font-family: monospace;
+  width: 100%;
+  position: relative;
+  background-color: aliceblue;
+}
+.flex-items {
+  justify-content: center;
+  flex-direction: column;
+  width: auto;
+  align-items: center;
+  text-align: center;
+}
+a {
+  justify-content: center;
+  display: flex inline-block;
+  flex-direction: column;
+  text-decoration: none;
+  text-rendering: auto;
+  font-size: large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(56, 112, 216);
+}
+h1 {
+  text-transform: capitalize;
+  color: rgb(0, 89, 255);
+  background-color: rgba(185, 185, 255, 0.459);
+  margin: 0px;
+  text-shadow: 1px 1px rgb(0, 221, 255);
+}
+.btn {
+  text-align: center;
+  justify-content: center;
+}
+
+.dropbtn {
+  background-color: aliceblue;
+  color: rgb(0, 89, 255);
+  padding: 12px;
+  font-size: medium;
+  border: none;
+  width: 120px;
+}
+.drbtn {
+  background-color: aliceblue;
+  color: rgb(0, 89, 255);
+  padding: 12px;
+  font-size: medium;
+  border: none;
+  width: 120px;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.drop {
+    position: relative;
+    display: inline-block;
+}
+.drdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+.drdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  font-size: medium;
+}
+.drdown-content a:hover {
+  background-color: #ddd;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  font-size: medium;
+}
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: aliceblue;
+}
+
+.banner {
+  width: 100%;
+  height: 175px;
+  padding: 0px;
+  background-color: aliceblue;
+  background-image: -webkit-linear-gradient(left, #a70903, #1834a6);
+  background-image: -o-linear-gradient(left, #1806a2, aliceblue);
+  background-image: linear-gradient(to right, aliceblue, #3a1a7a);
+  text-align: center;
+  text-size: larger;
+  font-size: 5em;
+  font-family: monospace;
+}
+.gh {
+  padding: 0%;
+  height: auto;
+  width: 40px;
+}
+body {
+  width: 100%;
+  height: 100%;
+}
+.ndisp {
+  height: 175px;
+}
+.foot {
+  align-self: bottom;
+  color: aliceblue;
+  height: 10px;
+  width: auto;
+}
+.pictures {
+  height: auto;
+  width: 70px;
+  display: relative;
+}
+
+.vid {
+  display: block;
+  position:relative;
+  flex-direction: row;
+  padding-bottom: 2.5%;
+  padding-top: 2.5%;
+  height: 6 em;
+  margin: 1 em;
+  padding-right: 5%;
+}
+.flex-center {
+  display:flex;
+  flex-direction: row;
+}
+
+#vbox {
+  display:flex;
+  position:absolute;
+  flex-direction: row;
+  bottom: 15px;
+  left: 15%;
+}
+
+#myDrop {
+display: flex;
+position: absolute;
+flex-direction: relative;
+}
