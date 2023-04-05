@@ -1,5 +1,5 @@
 /* Author: James Fehr */
-/* Stylesheet for ProtfolioDeux */
+/* Stylesheet for PortfolioDeux */
 /* Project for ICR100 ITD */
 
 * {
@@ -28,6 +28,7 @@ body {
   position: relative;
   background-color: aliceblue;
 }
+
 .flex-items {
   justify-content: center;
   flex-direction: column;
@@ -48,9 +49,14 @@ a {
 h1 {
   text-transform: capitalize;
   color: rgb(0, 89, 255);
-  background-color: rgba(185, 185, 255, 0.459);
+  background-color:aliceblue;
   margin: 0px;
   text-shadow: 1px 1px rgb(0, 221, 255);
+}
+h2 {
+text-align: center;
+color:darkslategray;
+background-color:aliceblue;
 }
 .btn {
   text-align: center;
@@ -65,9 +71,40 @@ h1 {
   border: none;
   width: 120px;
 }
+.drbtn {
+  background-color: aliceblue;
+  color: rgb(0, 89, 255);
+  padding: 12px;
+  font-size: medium;
+  border: none;
+  width: 120px;
+}
 .dropdown {
   position: relative;
   display: inline-block;
+}
+.drop {
+    position: relative;
+    display: inline-block;
+}
+.drdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+.drdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  font-size: medium;
+}
+.drdown-content a:hover {
+  background-color: #ddd;
 }
 .dropdown-content {
   display: none;
@@ -106,7 +143,7 @@ h1 {
   background-image: -o-linear-gradient(left, #1806a2, aliceblue);
   background-image: linear-gradient(to right, aliceblue, #3a1a7a);
   text-align: center;
-  text-size: larger;
+  font-size: larger;
   font-size: 5em;
   font-family: monospace;
 }
@@ -137,7 +174,7 @@ body {
 .vid {
   display: block;
   position:relative;
-  flex-direction: row;
+  flex-direction: relative;
   padding-bottom: 2.5%;
   padding-top: 2.5%;
   height: 6 em;
@@ -146,13 +183,39 @@ body {
 }
 .flex-center {
   display:flex;
-  flex-direction: row;
+  flex-direction: relative;
 }
 
 #vbox {
   display:flex;
   position:absolute;
-  flex-direction: row;
+  flex-direction: relative;
   bottom: 15px;
   left: 15%;
+}
+
+#myDrop {
+display: flex;
+position: absolute;
+flex-direction: relative;
+}
+#Send {
+  display:flex;
+  position: relative;
+  bottom: 25%;
+  left: 15%;
+}
+#bk {
+  display: flex;
+  position:relative;
+  bottom: 30%;
+  left: 49%;
+}
+.button {
+  height: 30px;
+  width: 50px;
+  display: flex;
+  position:relative;
+  flex-direction: row;
+  left: 5%;
 }
