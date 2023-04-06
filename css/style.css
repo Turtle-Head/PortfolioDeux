@@ -203,7 +203,7 @@ body {
 #vbox {
   display:flex;
   position:absolute;
-  flex-direction: relative;
+  flex-direction: column;
   bottom: 15px;
   left: 15%;
 }
