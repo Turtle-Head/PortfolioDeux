@@ -1,0 +1,61 @@
+<a
+                href="https://turtle-head.github.io/CleanUp/index.html"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                CleanUp
+              </a>
+            
+            <!-- Side project as a way of sharing what I have learned about google maps -->
+              <a
+                href="https://turtle-head.github.io/Coding-the-little-things/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Coding the little things
+              </a>
+
+          </div>
+      
+          <div class="dropdown">
+            <button class="dropbtn" onhover="myFunction()">
+              Visual Basic
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <!--The dropdown list of sites -->
+            <div class="dropdown-content" id="myDropdown">
+            <a
+          href="https://github.com/Turtle-Head/Calculator-v6"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+        Calculator-v6
+        </a>
+        <a
+        href="https://github.com/Turtle-Head/AirBub"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+      AirBus
+      </a>
+       </div>
+          </div>
+          <div class="dropdown">
+            <button class="dropbtn" onhover="myFunction()">
+              C sharp
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <!--The dropdown list of sites -->
+            <div class="dropdown-content" id="myDropdown">
+          <a
+          href="https://github.com/Turtle-Head/CalculatorV2"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          CalculatorV2
+        </a>
+        </div>
+        </div>
+            </div>
+    </div>
+  </div>
