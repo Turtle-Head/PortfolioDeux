@@ -11,6 +11,20 @@ body {
   background-color: rgba(185, 185, 255, 0.459);
   color: aliceblue;
 }
+#email{
+  height: 15px;
+  width:auto;
+  display: flex;
+  position:relative;
+  flex-direction: row;
+  left: 5%;
+}
+#bkbtn{
+  height: 15px;
+  width:auto;
+  display: flex;
+  position:relative;
+}
 
 .container {
   display: flex;
@@ -212,8 +226,8 @@ flex-direction: relative;
   left: 49%;
 }
 .button {
-  height: 30px;
-  width: 50px;
+  height: 15px;
+  width: auto;
   display: flex;
   position:relative;
   flex-direction: row;
