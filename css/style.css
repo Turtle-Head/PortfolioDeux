@@ -37,13 +37,14 @@ body {
 .sk_basket{
   display: flex;
   flex-direction: column;
+  width: 25%;
   height:fit-content;
   text-justify: center ;
   text-align: left;
   text-transform: capitalize;
-  left: 10%;
+  margin-left: 10%;
   position: relative;
-  color:rgb(253, 190, 2);
+  color:lime;
 }
 .nav {
   text-align: center;
@@ -246,15 +247,13 @@ flex-direction: relative;
 }
 .hDiv:hover + .hide {
   display: block;
-  color: deepskyblue;
-  left: 15%;
+  color: cyan;
+  margin-left: 15%;
   right: inherit;
   bottom: 25%;
 }
 #hide{
   display: none;
-  text-decoration-color: deepskyblue;
-  -moz-text-decoration-color: deepskyblue;
 }
 .hide {
   display: none;
