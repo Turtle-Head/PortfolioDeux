@@ -1,207 +1,235 @@
-<!-- Author: James Fehr  -->
-<!-- index for ProtfolioDeux -->
-<!-- Project for ICR100 ITD  -->
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Website Design, British Columbia, Vancouver, HTML5 code, JavaScript, CSS, James Fehr, Portfolio, HTML5, JavaScript, CSS, Front End Design, Front End Web Developer, Web Development, Web, HTML, JS">
-    <title>James Fehr</title>
-    <link rel="icon" type="image/png" href=".\img\j.png" />
-    <link rel="stylesheet" href="css/style.min.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
+    <meta charset="utf-8">
+    <title>UdaciFeeds React</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700">
+    <style>
+      body { font-family: 'Roboto', sans-serif; background: #f8f8f8; margin: 0; }
+      .header { background: #222; color: #fff; padding: 1em; display: flex; align-items: center; }
+      .menu-icon-link { color: #fff; margin-right: 1em; font-size: 2em; cursor: pointer; text-decoration: none; }
+      .slide-menu { position: fixed; left: 0; top: 0; bottom: 0; width: 250px; background: #333; color: #fff; transform: translateX(-100%); transition: transform 0.3s; z-index: 10; }
+      .slide-menu.open { transform: translateX(0); }
+      .slide-menu ul { list-style: none; padding: 0; margin: 0; }
+      .slide-menu li { border-bottom: 1px solid #444; }
+      .slide-menu a { color: #fff; display: block; padding: 1em; text-decoration: none; }
+      .slide-menu a.active { background: #444; }
+      .feed { margin-left: 0; padding: 2em 1em 1em 1em; max-width: 700px; margin: 2em auto 0 auto; }
+      .entry { background: #fff; margin-bottom: 1em; padding: 1em; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.07); }
+      .entry-link { color: inherit; text-decoration: none; }
+      .score { font-size: 1.2em; font-weight: bold; text-align: center; margin: 1em 0; }
+      @media (min-width: 700px) {
+        .feed { padding-left: 2em; padding-right: 2em; }
+      }
+    </style>
+    <!-- React and ReactDOM -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   </head>
-  <body background=".\img\b-back.jpg">
-    <div class="ndisp">
-      <h1 class="banner">
-        james fehr
-        <a
-          href="https://github.com/Turtle-Head"
-          target="_blank"https://github.com/Turtle-Head/PortfolioDeux/edit/main/index.html
-          rel="noopener noreferrer"
-        >
-          <img
-            class="gh"
-            src=".\img\gh.png"
-            height="15px"
-            width="15px"
-            alt="Github Profile"
-          />
-        </a>
-      </h1>
-      <h3 class="flex-items">General IT Programmer</h3>
-    </div>
-    <div>
-      <div class="nav">
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
 
-        <a href="./contact.html">Contact Form</a>
-      </div>
-      <div class="nav">
-        <div class="dropdown">
-          <button class="dropbtn" onhover="myFunction()">
-            Projects
-            <i class="fa fa-caret-down"></i>
-          </button>
-          <!--The dropdown list of sites -->
-          <div class="dropdown-content" id="myDropdown">
-              <a
-                href="https://turtle-head.github.io/Portfolio/"
-                target="_self"
-                rel="noopener noreferrer">
-                Projects
-              </a>
-            <div class="dropdown-content" id="myDropdown">
-              <a
-                href="https://turtle-head.github.io/Portfolio/index.html"
-                target="_self"
-                rel=noopener nonreferrer">
-                React.JS Project listing
-              </a>
-              <div class="dropdown-content" id="myDropdown">
-                <a
-                  href=".\vids.html"
-                  target="_self"
-                  rel="noopener noreferrer">
-                  Vids of Projects
-                </a>
-          </div>
-      <!-- Side project as a way of sharing what I have learned about google maps -->
+const allFeeds = [
+  {
+    name: "Udacity Blog",
+    url: "https://blog.udacity.com/feed"
+  }, {
+    name: "CSS Tricks",
+    url: "https://css-tricks.com/feed"
+  }, {
+    name: "HTML5 Rocks",
+    url: "https://feeds.feedburner.com/html5rocks"
+  }, {
+    name: "Linear Digressions",
+    url: "https://feeds.feedburner.com/udacity-linear-digressions"
+  }
+];
 
-        </div>
-      </div>
-    </div>
-    </div>
-    <br>
-    <div class="sk_basket">
-    <div class="hDiv">Programming Languages</div>
-    <div class="hide"><ul>
-      <li>HTML5 - 7+ yrs</li>
-      <li>CSS:CascadingStyleSheets - 7+ yrs</li>
-      <li>XML - 7+ yrs</li>
-      <li>JavaScript - 7+ yrs</li>
-      <ul>Javascript Frameworks:
-        <li>JQuery.js - 7+ yrs</li>
-        <li>Bootstrap.js - 7+ yrs</li>
-        <li>Knockout.js - 7+ yrs</li>
+function fetchFeed(url) {
+  // Udacity's proxy for RSS to JSON
+  return fetch("https://rsstojson.udacity.com/parseFeed", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ url })
+  })
+    .then(res => res.json())
+    .then(data => data.feed && data.feed.entries ? data.feed.entries : []);
+}
+
+function Menu({ feeds, currentFeed, onSelect, open, onClose }) {
+  return (
+    <nav className={`slide-menu${open ? " open" : ""}`}>
+      <ul>
+        {feeds.map((feed, idx) => (
+          <li key={feed.url}>
+            <a
+              href="#"
+              className={currentFeed === idx ? "active" : ""}
+              onClick={e => { e.preventDefault(); onSelect(idx); onClose(); }}
+            >
+              {feed.name}
+            </a>
+          </li>
+        ))}
       </ul>
-      <li>Visual Basic - 2+ yrs</li>
-      <li>SQL: StructuredQueryLanguage - 1+ yrs</li>
-      <li>C - 7+ yrs</li>
-      <li>C++ - 2+ yrs</li>
-      <li>C# - 2+ yrs</li>
-      <li>Python - 2+ yrs</li>
-      <li>PHP - 5+ yrs</li>
-    </ul>
-  </div>
-  <br>
-    <div class="hDiv">Websites</div>
-    <div class="hide"><ul>
-      <li>Portfolio<ul>
-        <li>JavaScript: Knockout.js</li>
-        <li>HTML, CSS</li>
-      </ul></li>
-      <br>
-    <li>Coding the little things<ul>
-      <li>JavaScript</li>
-      <li>HTML, CSS</li>
-    </ul></li>
-    <br>
-    <li>Bugged<ul>
-      <li>JavaScript</li>
-    </ul></li>
-    <br>
-    <li>Cat Clicker<ul>
-      <li>Javascript</li>
-      <li>HTML, CSS</li>
-    </ul></li>
-    <br>
-    <li>Gelp<ul>
-      <li>JavaScript</li>
-      <li>HTML, CSS</li>
-      </ul></li>
-      <br>
-      <li>Feedreader<ul>
-        <li>JavaScript: Jasmine</li>
-        <li>HTML, CSS</li>
-      </ul></li>
-      <br>
-    </ul></div>
-    <br>
-    <div class="hDiv">Websites: part Deux</div>
-    <div class="hide"><ul>
-      <li>ProtfolioDeux<ul>
-        <li>JavaScript</li>
-        <li>HTML, CSS</li>
-      </ul></li>
-      <br>
-      <li>CleanUp<ul>
-        <li>HTML, CSS</li>
-      </ul></li>
-      <br>
-    </ul></div>
-    <br>
-    <div class="hDiv">Visual Basic Projects</div>
-    <div class="hide"><ul>
-      <li>CalculatorV2<ul>
-        <li>Visual Basic</li>
-      </ul></li>
-      <br>
-      <li>AirBus<ul>
-        <li>Visual Basic</li>
-        <li>SQL</li>
-      </ul></li>
-    </ul>
-    <br>
-    </div>
-    <br>
-    <div class="hDiv">C# Projects</div>
-    <div class="hide"><ul>
-      <li>Calculator-v6<ul>
-        <li>C#</li>
-      </ul></li>
-      <br>
-      <li>BattleShip<ul>
-        <li>C#</li>
-      </ul></li>
-      <br>
-      <li>Club<ul>
-        <li>ASP.Net, C#</li>
-      </ul></li>
-    </ul>
-    </ul>
-  </div>
-  <br>
-  <div class="hDiv">IDEs</div>
-    <div class="hide"><ul>
-    <li>WordPress</li>
-    <li>Visual Studio Code</li>
-    <li>Visual Studio 2022</li>
-    </ul>
-    </div>
-    <footer></footer>
-    <!-- Javascript for dropdowns -->
-    <script>
-/* When the user hovers over the button,
-toggle between hiding and showing the dropdown content */
-      function myFunction() {
-        document.getElementById('myDropdown').classList.toggle('show')
-      }
+    </nav>
+  );
+}
 
-      // Close the dropdown if the user clicks outside of it
-      window.onclick = function (e) {
-        if (!e.target.matches('.dropbtn')) {
-          var myDropdown = document.getElementById('myDropdown')
-          if (myDropdown.classList.contains('show')) {
-            myDropdown.classList.remove('show')
-          }
-        }
-      }
+function Header({ onMenuClick }) {
+  return (
+    <div className="header">
+      <a href="#" className="menu-icon-link" onClick={e => { e.preventDefault(); onMenuClick(); }}>
+        <span role="img" aria-label="menu">&#9776;</span>
+      </a>
+      <h1 style={{margin: 0}}>Feeds</h1>
+    </div>
+  );
+}
+
+function Feed({ entries }) {
+  if (!entries.length) return <div>Loading...</div>;
+  return (
+    <div className="feed">
+      {entries.map((entry, i) => (
+        <a className="entry-link" href={entry.link} target="_blank" rel="noopener noreferrer" key={i}>
+          <article className="entry">
+            <h2>{entry.title}</h2>
+            <p dangerouslySetInnerHTML={{__html: entry.contentSnippet || entry.content || ""}} />
+          </article>
+        </a>
+      ))}
+    </div>
+  );
+}
+
+function Scoreboard({ feedName, entriesCount }) {
+  return (
+    <div className="score">
+      <span>Feed: <b>{feedName}</b></span> &nbsp;|&nbsp;
+      <span>Entries: <b>{entriesCount}</b></span>
+    </div>
+  );
+}
+
+function App() {
+  const [menuOpen, setMenuOpen] = React.useState(false);
+  const [currentFeed, setCurrentFeed] = React.useState(0);
+  const [entries, setEntries] = React.useState([]);
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    setLoading(true);
+    fetchFeed(allFeeds[currentFeed].url)
+      .then(setEntries)
+      .finally(() => setLoading(false));
+  }, [currentFeed]);
+
+  return (
+    <>
+      <Header onMenuClick={() => setMenuOpen(open => !open)} />
+      <Menu
+        feeds={allFeeds}
+        currentFeed={currentFeed}
+        onSelect={setCurrentFeed}
+        open={menuOpen}
+        onClose={() => setMenuOpen(false)}
+      />
+      <Scoreboard feedName={allFeeds[currentFeed].name} entriesCount={entries.length} />
+      {loading ? <div style={{textAlign: "center"}}>Loading...</div> : <Feed entries={entries} />}
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+
     </script>
-    <!-- End of Javascript -->
+    <!-- Add this to your index.html, after your React app code, inside <body> -->
+    <!-- filepath: /home/jecture/Documents/GitHub/FeedReader-P6/index.html -->
+    <div id="test-results" style="max-width:700px;margin:2em auto 0 auto;padding:1em;background:#fff;border-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,0.07);font-family:monospace;"></div>
+    <script type="text/babel">
+function runFeedReaderTests() {
+  const results = [];
+  function assert(condition, description) {
+    results.push({ pass: !!condition, description });
+  }
+
+  // Test 1: allFeeds is defined and not empty
+  assert(Array.isArray(allFeeds) && allFeeds.length > 0, "allFeeds is defined and not empty");
+
+  // Test 2: allFeeds URLs are defined and not empty
+  allFeeds.forEach((feed, i) => {
+    assert(feed.url && typeof feed.url === "string" && feed.url.length > 0, `Feed ${i + 1} has a valid URL`);
+  });
+
+  // Test 3: allFeeds names are defined and not empty
+  allFeeds.forEach((feed, i) => {
+    assert(feed.name && typeof feed.name === "string" && feed.name.length > 0, `Feed ${i + 1} has a valid name`);
+  });
+
+  // Test 4: Menu is hidden by default
+  const menu = document.querySelector('.slide-menu');
+  assert(menu && !menu.classList.contains('open'), "Menu is hidden by default");
+
+  // Test 5: Menu toggles visibility when icon is clicked
+  const menuIcon = document.querySelector('.menu-icon-link');
+  if (menuIcon && menu) {
+    menuIcon.click();
+    assert(menu.classList.contains('open'), "Menu shows when menu icon is clicked");
+    menuIcon.click();
+    assert(!menu.classList.contains('open'), "Menu hides when menu icon is clicked again");
+  } else {
+    assert(false, "Menu icon and menu exist in DOM");
+  }
+
+  // Test 6: Feed loads entries
+  const feedLinks = document.querySelectorAll('.entry-link');
+  assert(feedLinks.length > 0, "Feed loads at least one entry");
+
+  // Test 7: Feed changes when a new feed is selected
+  // Only run if there are at least 2 feeds
+  if (allFeeds.length > 1) {
+    const prevFirstTitle = feedLinks[0]?.querySelector('h2')?.textContent || "";
+    // Simulate selecting the second feed
+    const menuLinks = document.querySelectorAll('.slide-menu a');
+    if (menuLinks.length > 1) {
+      menuLinks[1].click();
+      setTimeout(() => {
+        const newFeedLinks = document.querySelectorAll('.entry-link');
+        const newFirstTitle = newFeedLinks[0]?.querySelector('h2')?.textContent || "";
+        assert(prevFirstTitle !== newFirstTitle, "Feed content changes when a new feed is loaded");
+        displayTestResults(results);
+      }, 1500); // Wait for feed to load
+      return;
+    } else {
+      assert(false, "Multiple feeds available for switching");
+    }
+  }
+
+  displayTestResults(results);
+}
+
+function displayTestResults(results) {
+  const container = document.getElementById('test-results');
+  const passed = results.filter(r => r.pass).length;
+  const total = results.length;
+  container.innerHTML = `
+    <h2 style="color:#222;">FeedReader React Tests</h2>
+    <ul style="padding-left:1em;">
+      ${results.map(r =>
+        `<li style="color:${r.pass ? 'green' : 'red'}">${r.pass ? '✔' : '✖'} ${r.description}</li>`
+      ).join('')}
+    </ul>
+    <div style="font-weight:bold;">Passed: ${passed} / ${total}</div>
+  `;
+}
+
+// Wait for React to render, then run tests
+setTimeout(runFeedReaderTests, 2000);
+</script>
   </body>
 </html>
