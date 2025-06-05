@@ -22,6 +22,7 @@
         color: #000;
         background: radial-gradient(circle at 50% 50%, #f8f8f8 60%, #e0e0e0 85%, #bdbdbd 100%);
       }
+      /* Removed fade-in animation for text */
       .banner-container {
         position: relative;
         max-width: 700px;
@@ -42,7 +43,6 @@
         margin-bottom: 0.2em;
       }
       .banner-github {
-        /* Remove absolute positioning so it sits inline */
         position: static;
         margin-left: 0.5em;
       }
@@ -185,7 +185,7 @@
             {
               label: "Portfolio",
               href: "https://turtle-head.github.io/Portfolio/",
-              subitems: ["JavaScript: React.js", "HTML, CSS"]
+              subitems: ["React.js", "HTML, CSS"]
             },
             {
               label: "Coding the little things",
@@ -195,7 +195,7 @@
             {
               label: "Bugged",
               href: "https://turtle-head.github.io/bugged/",
-              subitems: ["JavaScript:React"]
+              subitems: ["React, HTML, CSS"]
             },
             {
               label: "Cat Clicker",
@@ -210,22 +210,20 @@
             {
               label: "Feedreader",
               href: "https://turtle-head.github.io/feedreader/",
-              subitems: ["JavaScript: React", "HTML, CSS"]
-            }
-          ]
-        },
-        {
-          title: "Websites: part Deux",
-          items: [
+              subitems: ["React", "HTML, CSS"]
+            },
             {
               label: "ProtfolioDeux",
-              subitems: ["JavaScript", "HTML, CSS"]
+              href: "https://turtle-head.github.io/PortfolioDeux/index.html",
+              subitems: ["React", "HTML, CSS"]
             },
             {
               label: "CleanUp",
+              href: "https://turtle-head.github.io/cleanup/",
               subitems: ["HTML, CSS"]
             }
           ]
+          
         },
         {
           title: "Visual Basic Projects",
@@ -292,22 +290,40 @@
           <>
             <div className="hDiv">{title}</div>
             <div className="hide">
-              <ul>
+              <ul style={{ listStyle: "none", paddingLeft: 0, margin: 0 }}>
                 {items.map((item, idx) =>
                   typeof item === "string" ? (
                     <li key={idx}>{item}</li>
                   ) : (
-                    <li key={idx}>
-                      {item.href ? (
-                        <a href={item.href} target="_blank" rel="noopener noreferrer" style={{color: "#000", textDecoration: "underline"}}>{item.label}</a>
-                      ) : (
-                        item.label
+                    <li key={idx} style={{ position: "relative" }}>
+                      <span>
+                        {item.href ? (
+                          <a
+                            href={item.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{ color: "#000", textDecoration: "underline" }}
+                          >
+                            {item.label}
+                          </a>
+                        ) : (
+                          item.label
+                        )}
+                      </span>
+                      {item.subitems && (
+                        <ul
+                          style={{
+                            listStyle: "disc",
+                            paddingLeft: "1.5em",
+                            margin: 0,
+                            background: "inherit"
+                          }}
+                        >
+                          {item.subitems.map((sub, i) => (
+                            <li key={i}>{sub}</li>
+                          ))}
+                        </ul>
                       )}
-                      <ul>
-                        {item.subitems.map((sub, i) => (
-                          <li key={i}>{sub}</li>
-                        ))}
-                      </ul>
                     </li>
                   )
                 )}
